@@ -1,43 +1,57 @@
-# Simulador de Automação Industrial e Inspeção de Qualidade
+# Simulador de Controle de Qualidade com CLP
 
-Aplicação didática em Python com Tkinter que simula uma célula industrial controlada por PLC: esteira transportadora, prensa pneumática, inspeção dimensional e por peso, e separação de peças aprovadas e rejeitadas.
+Simulação educacional, desenvolvida em Python e Tkinter, de uma linha industrial com esteira transportadora, prensa pneumática, inspeção de qualidade e separação de peças aprovadas e reprovadas.
+
+> **Aviso de segurança:** a prensa, o botão de emergência e todas as entradas/saídas são simulados. Este programa não controla CLPs nem equipamentos reais e não é um sistema de segurança. Não o utilize para operar máquinas ou substituir proteções industriais.
 
 ## Funcionalidades
 
-- Simulação do ciclo de um PLC com varredura de 50 ms.
-- Controles de partida, parada e parada de emergência simulada.
-- Geração aleatória de peso e comprimento para as peças.
-- Modo para forçar a próxima peça como defeituosa.
-- Contadores de peças inspecionadas, aprovadas e rejeitadas.
-- Indicadores de estado e monitor de entradas/saídas digitais.
+- Ciclo de varredura simulado de CLP a cada 50 ms.
+- Comandos **START** e **STOP** para iniciar e parar a simulação.
+- **E-STOP** virtual para interromper o ciclo simulado.
+- Opção para forçar a geração de uma peça defeituosa.
+- Inspeção simulada com base no peso e no comprimento das peças.
+- Separação das peças aprovadas e reprovadas.
+- Contadores de produção e indicadores visuais de entradas e saídas digitais.
 
 ## Requisitos
 
 - Python 3.
-- Tkinter, normalmente incluído na instalação do Python.
-  - Em algumas distribuições Linux, pode ser necessário instalar o pacote `python3-tk`.
+- Tkinter (normalmente incluído nas instalações do Python).
+- Nenhum pacote Python externo é necessário.
 
-Não são necessárias bibliotecas Python externas.
+Em algumas distribuições Linux, instale o Tkinter separadamente, por exemplo:
+
+```bash
+sudo apt install python3-tk
+```
 
 ## Como executar
 
-1. Baixe ou clone este repositório.
-2. Abra um terminal na pasta do projeto.
-3. Execute:
+Abra um terminal na pasta do projeto e execute:
 
 ```bash
 python industrial_plc_qc_simulator.py
 ```
 
-Se o comando `python` não apontar para o Python 3, tente `python3` (Linux/macOS) ou `py` (Windows).
+Se necessário, use `python3` no Linux/macOS ou `py` no Windows:
 
-## Controles da simulação
+```bash
+python3 industrial_plc_qc_simulator.py
+# Windows
+py industrial_plc_qc_simulator.py
+```
 
-- **START:** inicia o ciclo de produção.
-- **STOP:** interrompe o ciclo.
-- **E-STOP:** simula uma condição de emergência e desliga as saídas da simulação.
-- **Next Part: DEFECTIVE:** alterna entre peça normal e peça defeituosa para a próxima peça gerada.
+## Controles
 
-## Aviso importante
+- **START:** inicia o ciclo da linha simulada.
+- **STOP:** para o ciclo.
+- **E-STOP:** simula uma parada de emergência da linha.
+- **Forçar peça defeituosa:** ativa a simulação de uma peça reprovada para observar a inspeção e a separação.
+- **Indicadores de I/O e contadores:** mostram o estado das entradas/saídas digitais simuladas e os resultados da produção.
 
-Este projeto é apenas uma simulação educacional. Os botões, sensores, saídas e a parada de emergência são elementos virtuais: o programa **não controla um PLC, máquinas ou qualquer equipamento físico** e não deve ser usado como sistema de segurança industrial.
+Os nomes e a disposição dos controles podem variar conforme a versão do simulador.
+
+## Finalidade
+
+Projeto didático para explorar conceitos básicos de automação industrial, lógica de controle, inspeção de qualidade e sinais digitais em uma interface gráfica. Toda a operação ocorre dentro do software.
